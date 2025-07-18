@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratify | Web Development & Hosting Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        accent: '#3b82f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',
+                        'hover': '0 10px 30px rgba(0, 0, 0, 0.1)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+        }
+        
+        .hero-pattern {
+            background-color: #f8fafc;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%230ea5e9' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            color: #3b82f6;
+        }
+        
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-item {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover .feature-icon {
+            color: #3b82f6;
+            transform: scale(1.1);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom form styling */
+        .form-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Animated underline for nav links */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Animated dots background */
+        .animated-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .dot {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(14, 165, 233, 0.1);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(-10px) translateX(20px);
+            }
+            75% {
+                transform: translateY(10px) translateX(-10px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-secondary-800">
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar fixed w-full z-50 bg-white bg-opacity-95 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <svg class="h-8 w-8 text-primary-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold text-secondary-900">Stratify</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-300">Home</a>
+                    <a href="#services" class="nav-link text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-300">Services</a>
+                    <a href="#about" class="nav-link text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-300">About Us</a>
+                    <a href="#contact" class="nav-link text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-300">Contact</a>
+                    <a href="#contact" class="btn-primary gradient-bg text-white font-medium py-2 px-6 rounded-md hover:opacity-90 transition-all duration-300">Get Started</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-secondary-600 hover:text-primary-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-300">Home</a>
+                    <a href="#services" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-300">Services</a>
+                    <a href="#about" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-300">About Us</a>
+                    <a href="#contact" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-300">Contact</a>
+                    <a href="#contact" class="btn-primary gradient-bg text-white font-medium py-2 px-6 rounded-md hover:opacity-90 transition-all duration-300 text-center">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern pt-28 pb-20 relative overflow-hidden">
+        <div class="animated-dots">
+            <div class="dot" style="width: 100px; height: 100px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+            <div class="dot" style="width: 150px; height: 150px; top: 60%; left: 10%; animation-delay: 2s;"></div>
+            <div class="dot" style="width: 80px; height: 80px; top: 30%; left: 80%; animation-delay: 1s;"></div>
+            <div class="dot" style="width: 120px; height: 120px; top: 70%; left: 70%; animation-delay: 3s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Building Your <span class="gradient-text">Digital Future</span>
+                    </h1>
+                    <p class="text-lg text-secondary-600 mb-8 max-w-lg">
+                        Professional web development and hosting solutions tailored to your business needs. We create responsive, high-performance websites with reliable hosting services.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="btn-primary gradient-bg text-white font-medium py-3 px-8 rounded-md hover:opacity-90 transition-all duration-300 text-center">
+                            Get Started
+                        </a>
+                        <a href="#services" class="border border-primary-600 text-primary-600 font-medium py-3 px-8 rounded-md hover:bg-primary-50 transition-all duration-300 text-center">
+                            Our Services
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <svg class="w-full h-auto" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background shape -->
+                            <path d="M50 100C50 72.3858 72.3858 50 100 50H500C527.614 50 550 72.3858 550 100V300C550 327.614 527.614 350 500 350H100C72.3858 350 50 327.614 50 300V100Z" fill="#F1F5F9"/>
+                            
+                            <!-- Browser window -->
+                            <rect x="100" y="100" width="400" height="250" rx="8" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+                            
+                            <!-- Browser header -->
+                            <rect x="100" y="100" width="400" height="30" rx="8" fill="#E2E8F0"/>
+                            <circle cx="120" cy="115" r="5" fill="#EF4444"/>
+                            <circle cx="140" cy="115" r="5" fill="#F59E0B"/>
+                            <circle cx="160" cy="115" r="5" fill="#10B981"/>
+                            
+                            <!-- URL bar -->
+                            <rect x="180" y="107" width="300" height="16" rx="8" fill="white"/>
+                            <path d="M190 115H195" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M200 115H205" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M210 115H215" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+                            
+                            <!-- Website content -->
+                            <!-- Header -->
+                            <rect x="120" y="150" width="360" height="40" rx="4" fill="#0EA5E9" fill-opacity="0.1"/>
+                            <rect x="140" y="162" width="100" height="16" rx="2" fill="#0EA5E9"/>
+                            <rect x="320" y="162" width="40" height="8" rx="2" fill="#94A3B8"/>
+                            <rect x="370" y="162" width="40" height="8" rx="2" fill="#94A3B8"/>
+                            <rect x="420" y="162" width="40" height="8" rx="2" fill="#94A3B8"/>
+                            
+                            <!-- Hero section -->
+                            <rect x="140" y="210" width="150" height="16" rx="2" fill="#1E293B"/>
+                            <rect x="140" y="234" width="200" height="8" rx="2" fill="#64748B"/>
+                            <rect x="140" y="248" width="200" height="8" rx="2" fill="#64748B"/>
+                            <rect x="140" y="270" width="100" height="30" rx="4" fill="#3B82F6"/>
+                            
+                            <!-- Image placeholder -->
+                            <rect x="360" y="210" width="120" height="90" rx="4" fill="#0EA5E9" fill-opacity="0.2"/>
+                            <path d="M390 240L410 270M430 240L410 270" stroke="#0EA5E9" stroke-width="2"/>
+                            <circle cx="420" cy="230" r="10" fill="#0EA5E9" fill-opacity="0.4"/>
+                            
+                            <!-- Animated elements -->
+                            <circle cx="420" cy="230" r="10" fill="#0EA5E9" fill-opacity="0.4">
+                                <animate attributeName="r" values="10;12;10" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <!-- Code elements -->
+                            <rect x="120" y="320" width="360" height="1" fill="#CBD5E1"/>
+                            <rect x="140" y="330" width="60" height="8" rx="2" fill="#64748B"/>
+                            <rect x="210" y="330" width="60" height="8" rx="2" fill="#64748B"/>
+                            <rect x="280" y="330" width="60" height="8" rx="2" fill="#64748B"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-white rounded-lg p-6 shadow-soft text-center">
+                    <div class="text-3xl font-bold text-primary-600 mb-2">99.9%</div>
+                    <div class="text-secondary-600">Uptime Guarantee</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-soft text-center">
+                    <div class="text-3xl font-bold text-primary-600 mb-2">500+</div>
+                    <div class="text-secondary-600">Websites Launched</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-soft text-center">
+                    <div class="text-3xl font-bold text-primary-600 mb-2">24/7</div>
+                    <div class="text-secondary-600">Expert Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white section-fade">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Services</span></h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">
+                    We provide comprehensive web solutions to help your business thrive in the digital landscape.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-laptop-code text-2xl text-primary-600 service-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Custom Website Development</h3>
+                    <p class="text-secondary-600 text-center mb-6">
+                        Responsive, SEO-friendly, and user-centric designs tailored to your business goals.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">Responsive design for all devices</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">SEO optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">User experience focused</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-server text-2xl text-primary-600 service-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Web Hosting</h3>
+                    <p class="text-secondary-600 text-center mb-6">
+                        Fast, secure, and scalable hosting solutions with 99.9% uptime guarantees.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">99.9% uptime guarantee</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">High-speed SSD storage</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">24/7 technical support</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-tools text-2xl text-primary-600 service-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Website Maintenance</h3>
+                    <p class="text-secondary-600 text-center mb-6">
+                        Ongoing updates, backups, security monitoring, and performance optimization.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">Regular software updates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">Daily backups</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">Security monitoring</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-globe text-2xl text-primary-600 service-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Domain Registration</h3>
+                    <p class="text-secondary-600 text-center mb-6">
+                        Simplified domain setup and management services for your online presence.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">Domain name search</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">Easy domain transfers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary-600 mt-1 mr-2"></i>
+                            <span class="text-secondary-600 text-sm">DNS management</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-secondary-50 section-fade">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose <span class="gradient-text">Stratify</span></h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">
+                    We combine technical expertise with creative design to deliver exceptional web solutions.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-item bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-xl text-primary-600 feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Lightning Fast Performance</h3>
+                    <p class="text-secondary-600">
+                        Optimized code and high-performance servers ensure your website loads quickly, improving user experience and SEO rankings.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-item bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-xl text-primary-600 feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fully Responsive Design</h3>
+                    <p class="text-secondary-600">
+                        Websites that look and function perfectly on all devices, from desktop computers to smartphones and tablets.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-item bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-lock text-xl text-primary-600 feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Advanced Security</h3>
+                    <p class="text-secondary-600">
+                        Comprehensive security measures including SSL certificates, regular updates, and proactive monitoring to protect your site.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-item bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-xl text-primary-600 feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">SEO Optimization</h3>
+                    <p class="text-secondary-600">
+                        Built-in search engine optimization to help your website rank higher in search results and attract more visitors.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-item bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-headset text-xl text-primary-600 feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Dedicated Support</h3>
+                    <p class="text-secondary-600">
+                        Our expert team is available 24/7 to provide technical assistance and answer any questions you may have.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-item bg-white rounded-lg p-6 shadow-soft">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-expand-arrows-alt text-xl text-primary-600 feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Scalable Solutions</h3>
+                    <p class="text-secondary-600">
+                        Flexible hosting plans and website designs that can grow with your business and adapt to changing needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-white section-fade">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Process</span></h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">
+                    We follow a structured approach to deliver high-quality web solutions that meet your specific needs.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Process line -->
+                <div class="hidden md:block absolute left-0 right-0 top-1/2 h-1 bg-primary-100 -translate-y-1/2"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-white border-4 border-primary-500 flex items-center justify-center mx-auto mb-6 z-10 relative">
+                            <span class="text-xl font-bold text-primary-600">1</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-soft text-center">
+                            <h3 class="text-xl font-bold mb-3">Discovery</h3>
+                            <p class="text-secondary-600">
+                                We learn about your business, goals, and requirements to create a tailored solution.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-white border-4 border-primary-500 flex items-center justify-center mx-auto mb-6 z-10 relative">
+                            <span class="text-xl font-bold text-primary-600">2</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-soft text-center">
+                            <h3 class="text-xl font-bold mb-3">Planning</h3>
+                            <p class="text-secondary-600">
+                                We create a detailed plan including design concepts, features, and timeline.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-white border-4 border-primary-500 flex items-center justify-center mx-auto mb-6 z-10 relative">
+                            <span class="text-xl font-bold text-primary-600">3</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-soft text-center">
+                            <h3 class="text-xl font-bold mb-3">Development</h3>
+                            <p class="text-secondary-600">
+                                Our team builds your website with clean code and modern design principles.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-white border-4 border-primary-500 flex items-center justify-center mx-auto mb-6 z-10 relative">
+                            <span class="text-xl font-bold text-primary-600">4</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-soft text-center">
+                            <h3 class="text-xl font-bold mb-3">Launch & Support</h3>
+                            <p class="text-secondary-600">
+                                We deploy your site and provide ongoing maintenance and support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-secondary-50 section-fade">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Client <span class="gradient-text">Testimonials</span></h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">
+                    Don't just take our word for it. Here's what our clients have to say about working with us.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 shadow-soft">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-secondary-600 mb-6 italic">
+                        "Stratify transformed our outdated website into a modern, user-friendly platform that has significantly increased our online inquiries. Their team was professional, responsive, and delivered exactly what we needed."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-4">
+                            <span class="text-primary-600 font-bold">JD</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Jane Doe</h4>
+                            <p class="text-secondary-500 text-sm">Marketing Director, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 shadow-soft">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-secondary-600 mb-6 italic">
+                        "We've been using Stratify's hosting services for over two years now, and the reliability has been exceptional. Their support team is always available and quick to resolve any issues we encounter."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-4">
+                            <span class="text-primary-600 font-bold">MS</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Smith</h4>
+                            <p class="text-secondary-500 text-sm">CEO, GrowthStartup</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 shadow-soft">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-secondary-600 mb-6 italic">
+                        "The team at Stratify went above and beyond to create a website that perfectly represents our brand. Their attention to detail and technical expertise made the entire process smooth and stress-free."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-4">
+                            <span class="text-primary-600 font-bold">AL</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Amanda Lee</h4>
+                            <p class="text-secondary-500 text-sm">Owner, Boutique Design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Client logos -->
+            <div class="mt-16">
+                <p class="text-center text-secondary-500 mb-8">Trusted by companies worldwide</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                    <!-- Logo 1 -->
+                    <div class="w-32 h-12 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-full h-auto" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="40" rx="4" fill="#F8FAFC"/>
+                            <path d="M30 20H90" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M40 15L50 25" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M50 15L40 25" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M70 15V25" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M65 20H75" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Logo 2 -->
+                    <div class="w-32 h-12 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-full h-auto" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="40" rx="4" fill="#F8FAFC"/>
+                            <circle cx="60" cy="20" r="10" stroke="#64748B" stroke-width="2"/>
+                            <path d="M55 20L65 20" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M60 15L60 25" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Logo 3 -->
+                    <div class="w-32 h-12 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-full h-auto" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="40" rx="4" fill="#F8FAFC"/>
+                            <rect x="45" y="15" width="30" height="10" stroke="#64748B" stroke-width="2" rx="2"/>
+                            <path d="M50 20H70" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Logo 4 -->
+                    <div class="w-32 h-12 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-full h-auto" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="40" rx="4" fill="#F8FAFC"/>
+                            <path d="M50 15L60 25L70 15" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white section-fade">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">Stratify</span></h2>
+                    <p class="text-secondary-600 mb-6">
+                        Stratify is a trusted partner with skilled developers and hosting experts committed to empowering businesses through digital solutions. We combine technical expertise with creative design to deliver exceptional web experiences.
+                    </p>
+                    <p class="text-secondary-600 mb-8">
+                        Our team is passionate about helping businesses of all sizes establish a strong online presence. We believe in creating websites that not only look great but also perform exceptionally well, driving real results for our clients.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="border-l-4 border-primary-500 pl-4">
+                            <h3 class="font-bold mb-2">Our Mission</h3>
+                            <p class="text-secondary-600 text-sm">
+                                To provide businesses with high-quality web solutions that drive growth and success.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-primary-500 pl-4">
+                            <h3 class="font-bold mb-2">Our Vision</h3>
+                            <p class="text-secondary-600 text-sm">
+                                To be the leading provider of web development and hosting services globally.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-bold mb-4">Our Core Values</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-primary-600"></i>
+                            </div>
+                            <span class="text-secondary-700">Professionalism</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-primary-600"></i>
+                            </div>
+                            <span class="text-secondary-700">Reliability</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-primary-600"></i>
+                            </div>
+                            <span class="text-secondary-700">Innovation</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-primary-600"></i>
+                            </div>
+                            <span class="text-secondary-700">Customer Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="relative z-10">
+                        <svg class="w-full h-auto" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background shape -->
+                            <rect x="50" y="50" width="400" height="300" rx="8" fill="#F1F5F9"/>
+                            
+                            <!-- Team illustration -->
+                            <circle cx="150" cy="150" r="60" fill="#CBD5E1"/>
+                            <circle cx="150" cy="120" r="30" fill="#94A3B8"/>
+                            <rect x="120" y="160" width="60" height="80" rx="4" fill="#94A3B8"/>
+                            
+                            <circle cx="250" cy="150" r="60" fill="#CBD5E1"/>
+                            <circle cx="250" cy="120" r="30" fill="#94A3B8"/>
+                            <rect x="220" y="160" width="60" height="80" rx="4" fill="#94A3B8"/>
+                            
+                            <circle cx="350" cy="150" r="60" fill="#CBD5E1"/>
+                            <circle cx="350" cy="120" r="30" fill="#94A3B8"/>
+                            <rect x="320" y="160" width="60" height="80" rx="4" fill="#94A3B8"/>
+                            
+                            <!-- Decorative elements -->
+                            <circle cx="150" cy="300" r="30" fill="#0EA5E9" fill-opacity="0.2"/>
+                            <circle cx="350" cy="300" r="30" fill="#0EA5E9" fill-opacity="0.2"/>
+                            <rect x="200" y="270" width="100" height="60" rx="4" fill="#0EA5E9" fill-opacity="0.2"/>
+                            
+                            <!-- Connection lines -->
+                            <path d="M150 220L150 270" stroke="#64748B" stroke-width="2" stroke-dasharray="4 4"/>
+                            <path d="M250 240L250 270" stroke="#64748B" stroke-width="2" stroke-dasharray="4 4"/>
+                            <path d="M350 220L350 270" stroke="#64748B" stroke-width="2" stroke-dasharray="4 4"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Decorative elements -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-full -z-10 -translate-y-10 translate-x-10"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-primary-100 rounded-full -z-10 translate-y-10 -translate-x-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary-600 section-fade">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Build Your Digital Presence?</h2>
+                <p class="text-primary-100 mb-8 max-w-2xl mx-auto">
+                    Contact us today to discuss how we can help you create a stunning website and provide reliable hosting solutions.
+                </p>
+                <a href="#contact" class="inline-block bg-white text-primary-600 font-bold py-3 px-8 rounded-md hover:bg-primary-50 transition-all duration-300">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white section-fade">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get in <span class="gradient-text">Touch</span></h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">
+                    Have questions or ready to start your project? Contact us today and our team will get back to you as soon as possible.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-white rounded-lg p-8 shadow-soft">
+                        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-secondary-700 mb-2">Name</label>
+                                    <input type="text" id="name" class="form-input w-full px-4 py-2 border border-secondary-300 rounded-md focus:outline-none" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-secondary-700 mb-2">Email</label>
+                                    <input type="email" id="email" class="form-input w-full px-4 py-2 border border-secondary-300 rounded-md focus:outline-none" placeholder="Your email">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-secondary-700 mb-2">Subject</label>
+                                <input type="text" id="subject" class="form-input w-full px-4 py-2 border border-secondary-300 rounded-md focus:outline-none" placeholder="Subject">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-secondary-700 mb-2">Message</label>
+                                <textarea id="message" rows="5" class="form-input w-full px-4 py-2 border border-secondary-300 rounded-md focus:outline-none" placeholder="Your message"></textarea>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="btn-primary gradient-bg text-white font-medium py-3 px-8 rounded-md hover:opacity-90 transition-all duration-300 w-full">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div id="formSuccess" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
+                            <p>Your message has been sent successfully! We'll get back to you soon.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-lg p-8 shadow-soft h-full">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-secondary-800 mb-1">Our Location</h4>
+                                    <p class="text-secondary-600">
+                                        123 Tech Street, Suite 100<br>
+                                        San Francisco, CA 94107
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-secondary-800 mb-1">Email Us</h4>
+                                    <p class="text-secondary-600">
+                                        info@stratify.com<br>
+                                        support@stratify.com
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone-alt text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-secondary-800 mb-1">Call Us</h4>
+                                    <p class="text-secondary-600">
+                                        +1 (555) 123-4567<br>
+                                        +1 (555) 987-6543
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-secondary-800 mb-1">Business Hours</h4>
+                                    <p class="text-secondary-600">
+                                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                        Saturday - Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-secondary-200">
+                            <h4 class="font-bold text-secondary-800 mb-4">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <svg class="h-8 w-8 text-primary-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold">Stratify</span>
+                    </div>
+                    <p class="text-secondary-400 mb-6">
+                        Professional web development and hosting solutions tailored to your business needs.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">Home</a></li>
+                        <li><a href="#services" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">Services</a></li>
+                        <li><a href="#about" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">About Us</a></li>
+                        <li><a href="#contact" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">Contact</a></li>
+                        <li><a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">Website Development</a></li>
+                        <li><a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">Web Hosting</a></li>
+                        <li><a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">Website Maintenance</a></li>
+                        <li><a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">Domain Registration</a></li>
+                        <li><a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300">SEO Services</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Newsletter</h4>
+                    <p class="text-secondary-400 mb-4">
+                        Subscribe to our newsletter for the latest updates and offers.
+                    </p>
+                    <form id="newsletterForm" class="space-y-4">
+                        <div>
+                            <input type="email" placeholder="Your email address" class="w-full px-4 py-2 bg-secondary-800 border border-secondary-700 rounded-md focus:outline-none focus:border-primary-500 text-white">
+                        </div>
+                        <button type="submit" class="btn-primary gradient-bg text-white font-medium py-2 px-4 rounded-md hover:opacity-90 transition-all duration-300 w-full">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-secondary-400 text-sm">
+                    &copy; 2023 Stratify. All rights reserved.
+                </p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300 text-sm mx-3">Privacy Policy</a>
+                    <a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300 text-sm mx-3">Terms of Service</a>
+                    <a href="#" class="text-secondary-400 hover:text-primary-500 transition-colors duration-300 text-sm mx-3">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full gradient-bg text-white flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:opacity-90">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Show/hide back to top button
+                const backToTopBtn = document.getElementById('backToTop');
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                }
+                
+                // Animate sections on scroll
+                const sections = document.querySelectorAll('.section-fade');
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.75) {
+                        section.classList.add('visible');
+                    }
+                });
+            });
+            
+            // Back to top functionality
+            const backToTopBtn = document.getElementById('backToTop');
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                        
+                        const navbarHeight = navbar.offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && email && message) {
+                    // Show success message
+                    formSuccess.classList.remove('hidden');
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formSuccess.classList.add('hidden');
+                    }, 5000);
+                }
+            });
+            
+            // Newsletter form
+            const newsletterForm = document.getElementById('newsletterForm');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const emailInput = this.querySelector('input[type="email"]');
+                
+                if (emailInput.value) {
+                    // Show temporary success state
+                    const originalText = this.querySelector('button').textContent;
+                    this.querySelector('button').textContent = 'Subscribed!';
+                    
+                    // Reset form
+                    setTimeout(() => {
+                        this.reset();
+                        this.querySelector('button').textContent = originalText;
+                    }, 2000);
+                }
+            });
+            
+            // Initialize section animations
+            const sections = document.querySelectorAll('.section-fade');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9611ec2684d173ee',t:'MTc1Mjg0MTExNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
