@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS | Future Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'space-black': '#050714',
+                        'deep-space': '#0a0e1f',
+                        'neon-blue': '#00f0ff',
+                        'neon-purple': '#b400ff',
+                        'neon-cyan': '#00ffcc',
+                    },
+                    fontFamily: {
+                        'tech': ['Orbitron', 'sans-serif'],
+                        'future': ['Rajdhani', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(0, 240, 255, 0.5), 0 0 10px rgba(0, 240, 255, 0.3)' },
+                            '100%': { boxShadow: '0 0 10px rgba(0, 240, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.5), 0 0 30px rgba(0, 240, 255, 0.3)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+        body {
+            background-color: #050714;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(10, 14, 31, 0.8) 0%, rgba(5, 7, 20, 0.8) 90%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #00f0ff, #b400ff, #00ffcc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 300% 100%;
+            animation: gradient 8s ease infinite;
+        }
+
+        .border-gradient {
+            position: relative;
+            border-radius: 0.5rem;
+        }
+
+        .border-gradient::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00f0ff, #b400ff, #00ffcc);
+            border-radius: 0.6rem;
+            z-index: -1;
+            animation: border-animate 4s linear infinite;
+        }
+
+        .holographic-card {
+            background: rgba(10, 14, 31, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .holographic-card::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.05) 25%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0.05) 75%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: holographic 6s linear infinite;
+            pointer-events: none;
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .neon-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .neon-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .neon-button:hover::before {
+            left: 100%;
+        }
+
+        .floating-menu {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .floating-menu.hidden {
+            transform: translateX(100%);
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #00f0ff, #b400ff);
+            width: 0%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: width 0.2s ease;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes border-animate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes holographic {
+            0% { transform: rotate(30deg) translateY(-60%); }
+            100% { transform: rotate(30deg) translateY(60%); }
+        }
+
+        .data-circle {
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .hexagon {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 14, 31, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00f0ff, #b400ff);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="font-future text-gray-200">
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-500" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-deep-space rounded-full border-2 border-neon-blue animate-pulse-slow flex items-center justify-center">
+                    <div class="w-6 h-6 bg-neon-blue rounded-full animate-pulse opacity-80"></div>
+                </div>
+                <span class="text-2xl font-tech font-bold tracking-wider text-gradient">NEXUS</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 relative group">
+                    Home
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 relative group">
+                    About
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#services" class="nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 relative group">
+                    Services
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 relative group">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-gray-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation Menu -->
+    <div id="mobileMenu" class="floating-menu hidden fixed top-0 right-0 h-full w-64 bg-deep-space bg-opacity-95 backdrop-blur-lg z-50 shadow-lg">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <span class="text-xl font-tech font-bold text-gradient">MENU</span>
+                <button id="closeMenuBtn" class="text-gray-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-6">
+                <a href="#home" class="mobile-nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 flex items-center">
+                    <i class="fas fa-home mr-3 text-neon-blue"></i>
+                    Home
+                </a>
+                <a href="#about" class="mobile-nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-3 text-neon-purple"></i>
+                    About
+                </a>
+                <a href="#services" class="mobile-nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-3 text-neon-cyan"></i>
+                    Services
+                </a>
+                <a href="#contact" class="mobile-nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-3 text-neon-blue"></i>
+                    Contact
+                </a>
+            </nav>
+            
+            <div class="mt-12 pt-6 border-t border-gray-700">
+                <div class="flex space-x-4 justify-center">
+                    <a href="#" class="w-8 h-8 rounded-full bg-deep-space border border-neon-blue flex items-center justify-center hover:bg-neon-blue hover:text-deep-space transition-all duration-300">
+                        <i class="fab fa-twitter text-sm"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-deep-space border border-neon-purple flex items-center justify-center hover:bg-neon-purple hover:text-deep-space transition-all duration-300">
+                        <i class="fab fa-linkedin-in text-sm"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-deep-space border border-neon-cyan flex items-center justify-center hover:bg-neon-cyan hover:text-deep-space transition-all duration-300">
+                        <i class="fab fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16 section">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1">
+                    <h1 class="text-4xl md:text-6xl font-tech font-bold mb-4 leading-tight">
+                        The Future of <span class="text-gradient">Technology</span> Is Here
+                    </h1>
+                    <p class="text-gray-400 text-lg mb-8">
+                        Pioneering the next generation of digital solutions with cutting-edge innovation and futuristic design.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#services" class="neon-button bg-neon-blue text-deep-space font-bold py-3 px-8 rounded-md hover:bg-opacity-80 transition-all duration-300 shadow-lg shadow-neon-blue/20">
+                            Explore Services
+                        </a>
+                        <a href="#about" class="neon-button bg-transparent border border-neon-blue text-neon-blue font-bold py-3 px-8 rounded-md hover:bg-neon-blue/10 transition-all duration-300">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <div class="relative w-full h-80 md:h-96 animate-float">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <defs>
+                                <linearGradient id="sphereGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00f0ff" />
+                                    <stop offset="50%" stop-color="#b400ff" />
+                                    <stop offset="100%" stop-color="#00ffcc" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="5" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                            
+                            <!-- Base sphere -->
+                            <circle cx="100" cy="100" r="80" fill="url(#sphereGradient)" opacity="0.2" />
+                            
+                            <!-- Grid lines -->
+                            <g stroke="#00f0ff" stroke-width="0.5" fill="none" opacity="0.6">
+                                <circle cx="100" cy="100" r="80" />
+                                <circle cx="100" cy="100" r="60" />
+                                <circle cx="100" cy="100" r="40" />
+                                <line x1="20" y1="100" x2="180" y2="100" />
+                                <line x1="100" y1="20" x2="100" y2="180" />
+                            </g>
+                            
+                            <!-- Orbiting elements -->
+                            <g id="orbits" filter="url(#glow)">
+                                <circle cx="160" cy="100" r="5" fill="#00f0ff" class="orbit-element" />
+                                <circle cx="100" cy="40" r="5" fill="#b400ff" class="orbit-element" />
+                                <circle cx="40" cy="100" r="5" fill="#00ffcc" class="orbit-element" />
+                            </g>
+                            
+                            <!-- Connecting lines -->
+                            <g stroke="#ffffff" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6">
+                                <line x1="100" y1="100" x2="160" y2="100" class="orbit-line" />
+                                <line x1="100" y1="100" x2="100" y2="40" class="orbit-line" />
+                                <line x1="100" y1="100" x2="40" y2="100" class="orbit-line" />
+                            </g>
+                            
+                            <!-- Center point -->
+                            <circle cx="100" cy="100" r="8" fill="#ffffff" opacity="0.8" />
+                        </svg>
+                    </div>
+                    
+                    <!-- Floating particles -->
+                    <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+                        <div class="particle absolute w-2 h-2 rounded-full bg-neon-blue" style="top: 20%; left: 10%; animation: float 8s infinite ease-in-out;"></div>
+                        <div class="particle absolute w-3 h-3 rounded-full bg-neon-purple" style="top: 70%; left: 80%; animation: float 12s infinite ease-in-out;"></div>
+                        <div class="particle absolute w-1 h-1 rounded-full bg-neon-cyan" style="top: 40%; left: 60%; animation: float 6s infinite ease-in-out;"></div>
+                        <div class="particle absolute w-2 h-2 rounded-full bg-neon-blue" style="top: 80%; left: 30%; animation: float 10s infinite ease-in-out;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                <span class="text-sm text-gray-400 mb-2">Scroll Down</span>
+                <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-1">
+                    <div class="w-1 h-2 bg-neon-blue rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-tech font-bold mb-4">About <span class="text-gradient">NEXUS</span></h2>
+                <div class="w-24 h-1 bg-neon-blue mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="holographic-card p-6 border-gradient">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-4">
+                                <div class="hexagon bg-neon-blue/20 p-6 flex items-center justify-center">
+                                    <i class="fas fa-microchip text-4xl text-neon-blue"></i>
+                                </div>
+                                <div class="hexagon bg-neon-purple/20 p-6 flex items-center justify-center">
+                                    <i class="fas fa-brain text-4xl text-neon-purple"></i>
+                                </div>
+                            </div>
+                            <div class="space-y-4 mt-8">
+                                <div class="hexagon bg-neon-cyan/20 p-6 flex items-center justify-center">
+                                    <i class="fas fa-network-wired text-4xl text-neon-cyan"></i>
+                                </div>
+                                <div class="hexagon bg-neon-blue/20 p-6 flex items-center justify-center">
+                                    <i class="fas fa-robot text-4xl text-neon-blue"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats overlay -->
+                    <div class="absolute -bottom-8 -right-8 bg-deep-space p-4 rounded-lg border border-neon-purple shadow-lg shadow-neon-purple/20">
+                        <div class="flex items-center space-x-4">
+                            <div class="relative w-16 h-16">
+                                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 160 160">
+                                    <circle cx="80" cy="80" r="70" stroke="#1a1e35" stroke-width="12" fill="none" />
+                                    <circle class="data-circle" cx="80" cy="80" r="70" stroke="#00f0ff" stroke-width="12" fill="none" stroke-dashoffset="110" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center text-lg font-bold text-neon-blue">75%</div>
+                            </div>
+                            <div>
+                                <p class="text-neon-blue font-tech">Innovation Rate</p>
+                                <p class="text-xs text-gray-400">Above industry average</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-tech font-bold mb-6">Pioneering the Digital Frontier</h3>
+                    <p class="text-gray-300 mb-6">
+                        At NEXUS, we're not just adapting to the future—we're creating it. Our team of visionary engineers, designers, and strategists work at the intersection of technology and imagination to deliver solutions that transform industries.
+                    </p>
+                    <p class="text-gray-300 mb-8">
+                        Founded in 2023, we've quickly established ourselves as leaders in emerging technologies, combining cutting-edge research with practical applications that solve real-world challenges.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-l-2 border-neon-blue pl-4">
+                            <h4 class="font-tech text-neon-blue text-lg mb-2">Our Vision</h4>
+                            <p class="text-gray-400 text-sm">To pioneer technological advancements that seamlessly integrate with human experience.</p>
+                        </div>
+                        <div class="border-l-2 border-neon-purple pl-4">
+                            <h4 class="font-tech text-neon-purple text-lg mb-2">Our Mission</h4>
+                            <p class="text-gray-400 text-sm">To create innovative solutions that empower businesses and individuals in the digital age.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="mt-24">
+                <h3 class="text-2xl font-tech font-bold mb-10 text-center">Our Journey</h3>
+                
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-neon-blue via-neon-purple to-neon-cyan"></div>
+                    
+                    <!-- Timeline items -->
+                    <div class="timeline-container">
+                        <!-- Item 1 -->
+                        <div class="relative mb-16">
+                            <div class="flex items-center justify-center mb-8">
+                                <div class="w-10 h-10 rounded-full bg-deep-space border-2 border-neon-blue z-10 flex items-center justify-center">
+                                    <div class="w-4 h-4 bg-neon-blue rounded-full"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="md:text-right md:pr-8">
+                                    <h4 class="font-tech text-neon-blue text-xl mb-2">2023</h4>
+                                    <h5 class="font-bold text-white mb-3">Foundation</h5>
+                                    <p class="text-gray-400">NEXUS was established with a vision to revolutionize the technological landscape.</p>
+                                </div>
+                                <div class="md:pl-8">
+                                    <div class="holographic-card p-4">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120' viewBox='0 0 200 120'%3E%3Crect width='200' height='120' fill='%230a0e1f'/%3E%3Cpath d='M100,20 L140,80 L60,80 Z' fill='none' stroke='%2300f0ff' stroke-width='2'/%3E%3Ccircle cx='100' cy='60' r='30' fill='none' stroke='%23b400ff' stroke-width='2'/%3E%3C/svg%3E" alt="Foundation" class="w-full h-auto rounded">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="relative mb-16">
+                            <div class="flex items-center justify-center mb-8">
+                                <div class="w-10 h-10 rounded-full bg-deep-space border-2 border-neon-purple z-10 flex items-center justify-center">
+                                    <div class="w-4 h-4 bg-neon-purple rounded-full"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="md:text-right md:pr-8 md:order-1 order-2">
+                                    <div class="holographic-card p-4">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120' viewBox='0 0 200 120'%3E%3Crect width='200' height='120' fill='%230a0e1f'/%3E%3Ccircle cx='60' cy='60' r='20' fill='none' stroke='%2300f0ff' stroke-width='2'/%3E%3Ccircle cx='140' cy='60' r='20' fill='none' stroke='%23b400ff' stroke-width='2'/%3E%3Cpath d='M60,60 L140,60' stroke='%2300ffcc' stroke-width='2'/%3E%3C/svg%3E" alt="Innovation" class="w-full h-auto rounded">
+                                    </div>
+                                </div>
+                                <div class="md:pl-8 md:order-2 order-1">
+                                    <h4 class="font-tech text-neon-purple text-xl mb-2">2024</h4>
+                                    <h5 class="font-bold text-white mb-3">Breakthrough Innovation</h5>
+                                    <p class="text-gray-400">Launched our first suite of proprietary technologies, setting new industry standards.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3 -->
+                        <div class="relative">
+                            <div class="flex items-center justify-center mb-8">
+                                <div class="w-10 h-10 rounded-full bg-deep-space border-2 border-neon-cyan z-10 flex items-center justify-center">
+                                    <div class="w-4 h-4 bg-neon-cyan rounded-full"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="md:text-right md:pr-8">
+                                    <h4 class="font-tech text-neon-cyan text-xl mb-2">2025</h4>
+                                    <h5 class="font-bold text-white mb-3">Global Expansion</h5>
+                                    <p class="text-gray-400">Expanding our reach to international markets with innovative solutions.</p>
+                                </div>
+                                <div class="md:pl-8">
+                                    <div class="holographic-card p-4">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120' viewBox='0 0 200 120'%3E%3Crect width='200' height='120' fill='%230a0e1f'/%3E%3Ccircle cx='100' cy='60' r='40' fill='none' stroke='%2300ffcc' stroke-width='2'/%3E%3Cpath d='M70,60 L130,60 M100,30 L100,90' stroke='%2300f0ff' stroke-width='2'/%3E%3Ccircle cx='70' cy='40' r='5' fill='%23b400ff'/%3E%3Ccircle cx='130' cy='80' r='5' fill='%23b400ff'/%3E%3C/svg%3E" alt="Global Expansion" class="w-full h-auto rounded">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-deep-space bg-opacity-50 section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-tech font-bold mb-4">Our <span class="text-gradient">Services</span></h2>
+                <div class="w-24 h-1 bg-neon-purple mx-auto rounded-full"></div>
+                <p class="text-gray-400 mt-6 max-w-2xl mx-auto">
+                    Cutting-edge solutions designed to transform your business and propel you into the future.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card holographic-card p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-neon-blue/20">
+                    <div class="w-16 h-16 rounded-full bg-neon-blue bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-vr-cardboard text-3xl text-neon-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-tech font-bold mb-4">Immersive Technologies</h3>
+                    <p class="text-gray-400 mb-6">
+                        Revolutionary VR and AR solutions that transform how users interact with digital content.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-blue mr-2"></i>
+                            <span class="text-gray-300 text-sm">Virtual Reality Environments</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-blue mr-2"></i>
+                            <span class="text-gray-300 text-sm">Augmented Reality Applications</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-blue mr-2"></i>
+                            <span class="text-gray-300 text-sm">Mixed Reality Experiences</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block text-neon-blue hover:text-white transition-colors duration-300 text-sm font-bold">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card holographic-card p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-neon-purple/20">
+                    <div class="w-16 h-16 rounded-full bg-neon-purple bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-3xl text-neon-purple"></i>
+                    </div>
+                    <h3 class="text-xl font-tech font-bold mb-4">AI & Machine Learning</h3>
+                    <p class="text-gray-400 mb-6">
+                        Advanced AI solutions that analyze data, automate processes, and drive intelligent decision-making.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-purple mr-2"></i>
+                            <span class="text-gray-300 text-sm">Predictive Analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-purple mr-2"></i>
+                            <span class="text-gray-300 text-sm">Natural Language Processing</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-purple mr-2"></i>
+                            <span class="text-gray-300 text-sm">Computer Vision Systems</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block text-neon-purple hover:text-white transition-colors duration-300 text-sm font-bold">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card holographic-card p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-neon-cyan/20">
+                    <div class="w-16 h-16 rounded-full bg-neon-cyan bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-3xl text-neon-cyan"></i>
+                    </div>
+                    <h3 class="text-xl font-tech font-bold mb-4">Quantum Cybersecurity</h3>
+                    <p class="text-gray-400 mb-6">
+                        Next-generation security protocols leveraging quantum computing principles to protect digital assets.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-cyan mr-2"></i>
+                            <span class="text-gray-300 text-sm">Quantum Encryption</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-cyan mr-2"></i>
+                            <span class="text-gray-300 text-sm">Threat Intelligence</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-cyan mr-2"></i>
+                            <span class="text-gray-300 text-sm">Zero-Trust Architecture</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block text-neon-cyan hover:text-white transition-colors duration-300 text-sm font-bold">
+                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Featured Project -->
+            <div class="mt-24">
+                <h3 class="text-2xl font-tech font-bold mb-10 text-center">Featured Project</h3>
+                
+                <div class="holographic-card overflow-hidden">
+                    <div class="grid md:grid-cols-2">
+                        <div class="p-8">
+                            <span class="inline-block px-3 py-1 bg-neon-blue bg-opacity-20 text-neon-blue text-xs rounded-full mb-4">CASE STUDY</span>
+                            <h4 class="text-2xl font-tech font-bold mb-4">Project NOVA</h4>
+                            <p class="text-gray-300 mb-6">
+                                A revolutionary smart city infrastructure system that integrates IoT sensors, AI analytics, and renewable energy to create sustainable urban environments.
+                            </p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center">
+                                    <div class="w-full bg-deep-space rounded-full h-2.5">
+                                        <div class="bg-gradient-to-r from-neon-blue to-neon-purple h-2.5 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                    <span class="ml-3 text-sm text-gray-300">Energy Efficiency</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-deep-space rounded-full h-2.5">
+                                        <div class="bg-gradient-to-r from-neon-purple to-neon-cyan h-2.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                    <span class="ml-3 text-sm text-gray-300">Cost Reduction</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-deep-space rounded-full h-2.5">
+                                        <div class="bg-gradient-to-r from-neon-cyan to-neon-blue h-2.5 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                    <span class="ml-3 text-sm text-gray-300">User Satisfaction</span>
+                                </div>
+                            </div>
+                            
+                            <a href="#contact" class="neon-button inline-block bg-neon-purple text-deep-space font-bold py-2 px-6 rounded-md hover:bg-opacity-80 transition-all duration-300 shadow-lg shadow-neon-purple/20">
+                                View Full Case Study
+                            </a>
+                        </div>
+                        
+                        <div class="relative h-80 md:h-auto">
+                            <div class="absolute inset-0 bg-gradient-to-r from-deep-space to-transparent z-10 md:hidden"></div>
+                            <div class="h-full w-full bg-cover bg-center" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%230a0e1f\'/%3E%3Cpath d=\'M0,200 L600,200\' stroke=\'%2300f0ff\' stroke-width=\'1\' stroke-dasharray=\'5,5\'/%3E%3Cpath d=\'M300,0 L300,400\' stroke=\'%2300f0ff\' stroke-width=\'1\' stroke-dasharray=\'5,5\'/%3E%3Ccircle cx=\'300\' cy=\'200\' r=\'100\' fill=\'none\' stroke=\'%23b400ff\' stroke-width=\'2\'/%3E%3Ccircle cx=\'300\' cy=\'200\' r=\'50\' fill=\'none\' stroke=\'%2300ffcc\' stroke-width=\'2\'/%3E%3Crect x=\'250\' y=\'150\' width=\'100\' height=\'100\' fill=\'none\' stroke=\'%2300f0ff\' stroke-width=\'2\'/%3E%3Cpath d=\'M200,100 L400,300 M400,100 L200,300\' stroke=\'%23b400ff\' stroke-width=\'2\'/%3E%3C/svg%3E')"></div>
+                            
+                            <!-- Interactive elements -->
+                            <div class="absolute top-1/4 left-1/4 w-4 h-4 rounded-full bg-neon-blue animate-pulse"></div>
+                            <div class="absolute top-2/3 right-1/3 w-4 h-4 rounded-full bg-neon-purple animate-pulse"></div>
+                            <div class="absolute bottom-1/4 right-1/4 w-4 h-4 rounded-full bg-neon-cyan animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-tech font-bold mb-4">Get in <span class="text-gradient">Touch</span></h2>
+                <div class="w-24 h-1 bg-neon-cyan mx-auto rounded-full"></div>
+                <p class="text-gray-400 mt-6 max-w-2xl mx-auto">
+                    Ready to step into the future? Contact us to discuss how our cutting-edge solutions can transform your business.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="holographic-card p-8 border-gradient h-full">
+                        <h3 class="text-2xl font-tech font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-neon-blue bg-opacity-20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-neon-blue"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Location</h4>
+                                    <p class="text-gray-400">Tech Innovation District<br>San Francisco, CA 94105</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-neon-purple bg-opacity-20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-neon-purple"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Email</h4>
+                                    <p class="text-gray-400">info@nexusfuture.tech<br>support@nexusfuture.tech</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-neon-cyan bg-opacity-20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone-alt text-neon-cyan"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Phone</h4>
+                                    <p class="text-gray-400">+1 (415) 555-0123<br>+1 (415) 555-0124</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-700">
+                            <h4 class="font-bold text-white mb-4">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-deep-space border border-neon-blue flex items-center justify-center hover:bg-neon-blue hover:text-deep-space transition-all duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-deep-space border border-neon-purple flex items-center justify-center hover:bg-neon-purple hover:text-deep-space transition-all duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-deep-space border border-neon-cyan flex items-center justify-center hover:bg-neon-cyan hover:text-deep-space transition-all duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-deep-space border border-neon-blue flex items-center justify-center hover:bg-neon-blue hover:text-deep-space transition-all duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="holographic-card p-8">
+                        <h3 class="text-2xl font-tech font-bold mb-6">Send Us a Message</h3>
+                        
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-300 mb-2">Name</label>
+                                    <input type="text" id="name" class="w-full bg-deep-space border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-neon-blue transition-colors duration-300" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-300 mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full bg-deep-space border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-neon-blue transition-colors duration-300" placeholder="Your email">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full bg-deep-space border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-neon-blue transition-colors duration-300" placeholder="Subject">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-300 mb-2">Message</label>
+                                <textarea id="message" rows="5" class="w-full bg-deep-space border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-neon-blue transition-colors duration-300" placeholder="Your message"></textarea>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="neon-button w-full bg-gradient-to-r from-neon-blue via-neon-purple to-neon-cyan text-white font-bold py-3 px-8 rounded-md hover:opacity-90 transition-all duration-300 shadow-lg shadow-neon-blue/20">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div id="formSuccess" class="hidden mt-6 p-4 bg-neon-cyan bg-opacity-20 border border-neon-cyan rounded-md">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-neon-cyan mr-3"></i>
+                                <p class="text-white">Your message has been sent successfully! We'll get back to you soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 bg-deep-space bg-opacity-80">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#home" class="flex items-center space-x-2 mb-6">
+                        <div class="w-8 h-8 bg-deep-space rounded-full border-2 border-neon-blue flex items-center justify-center">
+                            <div class="w-4 h-4 bg-neon-blue rounded-full"></div>
+                        </div>
+                        <span class="text-xl font-tech font-bold tracking-wider text-gradient">NEXUS</span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Pioneering the future through innovative technology solutions that transform businesses and enhance human experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-tech font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-tech font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">Immersive Technologies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">AI & Machine Learning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">Quantum Cybersecurity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">IoT Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">Blockchain Technology</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-tech font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Subscribe to our newsletter for the latest updates on technology trends and company news.
+                    </p>
+                    <form id="newsletterForm" class="space-y-4">
+                        <div>
+                            <input type="email" placeholder="Your email address" class="w-full bg-deep-space border border-gray-700 rounded-md px-4 py-2 text-white focus:outline-none focus:border-neon-cyan transition-colors duration-300">
+                        </div>
+                        <button type="submit" class="neon-button w-full bg-neon-cyan text-deep-space font-bold py-2 px-4 rounded-md hover:bg-opacity-80 transition-all duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2023 NEXUS. All rights reserved.
+                </p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-500 hover:text-neon-blue transition-colors duration-300 text-sm mx-3">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-neon-blue transition-colors duration-300 text-sm mx-3">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-neon-blue transition-colors duration-300 text-sm mx-3">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to top button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-neon-blue text-deep-space flex items-center justify-center shadow-lg shadow-neon-blue/30 opacity-0 invisible transition-all duration-300 hover:bg-white">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const menuBtn = document.getElementById('menuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            menuBtn.addEventListener('click', function() {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('transform', 'translateX(100%)');
+                }, 10);
+            });
+            
+            closeMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Scroll progress bar
+            const progressBar = document.getElementById('progressBar');
+            window.addEventListener('scroll', function() {
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercentage = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = scrollPercentage + '%';
+                
+                // Show/hide back to top button
+                const backToTopBtn = document.getElementById('backToTop');
+                if (scrollTop > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                }
+                
+                // Navbar background change on scroll
+                const navbar = document.getElementById('navbar');
+                if (scrollTop > 50) {
+                    navbar.classList.add('bg-deep-space', 'bg-opacity-90', 'backdrop-blur-lg', 'shadow-lg');
+                } else {
+                    navbar.classList.remove('bg-deep-space', 'bg-opacity-90', 'backdrop-blur-lg', 'shadow-lg');
+                }
+            });
+            
+            // Back to top functionality
+            const backToTopBtn = document.getElementById('backToTop');
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && email && message) {
+                    // Show success message
+                    formSuccess.classList.remove('hidden');
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formSuccess.classList.add('hidden');
+                    }, 5000);
+                }
+            });
+            
+            // Newsletter form
+            const newsletterForm = document.getElementById('newsletterForm');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                
+                if (emailInput.value) {
+                    // Show temporary success state
+                    const originalText = this.querySelector('button').textContent;
+                    this.querySelector('button').textContent = 'Subscribed!';
+                    this.querySelector('button').classList.add('bg-green-500');
+                    
+                    // Reset form
+                    setTimeout(() => {
+                        this.reset();
+                        this.querySelector('button').textContent = originalText;
+                        this.querySelector('button').classList.remove('bg-green-500');
+                    }, 2000);
+                }
+            });
+            
+            // Animate data circles
+            const dataCircles = document.querySelectorAll('.data-circle');
+            dataCircles.forEach(circle => {
+                const value = circle.getAttribute('stroke-dashoffset');
+                circle.style.strokeDashoffset = value;
+            });
+            
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.section');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Orbit animation for hero sphere
+            const orbitElements = document.querySelectorAll('.orbit-element');
+            const orbitLines = document.querySelectorAll('.orbit-line');
+            
+            function animateOrbit() {
+                const now = Date.now() / 1000;
+                
+                orbitElements.forEach((element, index) => {
+                    const angle = now * (0.5 + index * 0.2);
+                    const radius = 60;
+                    const x = 100 + radius * Math.cos(angle);
+                    const y = 100 + radius * Math.sin(angle);
+                    
+                    element.setAttribute('cx', x);
+                    element.setAttribute('cy', y);
+                    
+                    // Update connecting lines
+                    if (orbitLines[index]) {
+                        orbitLines[index].setAttribute('x2', x);
+                        orbitLines[index].setAttribute('y2', y);
+                    }
+                });
+                
+                requestAnimationFrame(animateOrbit);
+            }
+            
+            animateOrbit();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9611e1a1b60773e2',t:'MTc1Mjg0MDY4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
